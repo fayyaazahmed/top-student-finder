@@ -9,6 +9,15 @@ class Student:
 
 
 def read_csv(file_name, header=True):
+    """
+    Reads a CSV file containing student information and returns a list of Student objects.
+
+    :param file_name: The name of the CSV file to read.
+    :param header: Whether the file contains a header line. Defaults to True.
+    :return: A list of Student objects representing the data in the CSV file.
+    :raises IOError: If the specified file does not exist or cannot be opened.
+    :raises ValueError: If the format of the data in the file is incorrect.
+    """
     try:
         with open(file_name, "r") as f:
             csv_file = f.readlines()
@@ -39,6 +48,13 @@ def read_csv(file_name, header=True):
 
 
 def get_top_students(list_of_students):
+    """
+    Returns a list of the top scoring students in a given list of Student objects.
+
+    :param list_of_students: A list of Student objects to be processed.
+    :return: A list of the top scoring Student objects. If there are ties for the top score,
+             all the tied students are included in the list.
+    """
     top_students = []
     max_score = float('-inf')
 
@@ -56,6 +72,12 @@ def get_top_students(list_of_students):
 
 
 def quicksort(list_of_students):
+    """
+    Sorts a list of Student objects using the quicksort algorithm.
+
+    :param list_of_students: A list of Student objects to be sorted.
+    :return: A sorted list of Student objects.
+    """
     # returns if list is empty or contains single Student
     if len(list_of_students) <= 1:
         return list_of_students
@@ -76,6 +98,20 @@ def quicksort(list_of_students):
 
 
 def main():
+    """
+    Parses command-line arguments and runs the program to find and sort the top-performing students
+    in a given CSV file. The program reads the file and creates a list of Student objects, then uses
+    a max algorithm to find the students with the highest score(s). The list of top students is then
+    sorted alphabetically by first and second name, and the results are written to standard output.
+    
+    Command-line arguments:
+    -h, --help: show this help message and exit
+    -n, --no-header: specifies that the input file does not contain a header row
+    -q, --quicksort: uses Quicksort instead of the default Python sorting algorithm. No duplicates allowed.
+    input_file: required positional argument; specifies the CSV file of students to read (Format: first_name, second_name, score (integer))
+
+    Returns: None
+    """
     # basic CLI interface for better accessiblity
     parser = argparse.ArgumentParser(
         description="Top Perfoming Student Finder - Uses a max algorthim to find top students and then implements a Quicksort to sort them aplhabetically. Writes to STDOUT.",
