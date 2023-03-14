@@ -40,11 +40,16 @@ The input file must be in CSV format (.csv) and contain the following fields:
 `score`: Score of the student (integer).
 
 ## Output Format
-The program outputs the top student(s) in the following format (see result_example.txt):
+The program outputs the top student(s) in the following format to STDOUT (see result_example.txt):
 ```
 <first_name> <second_name>
 Score: <score>
 ```
+For output to .txt file use piping: 
+```
+python top_students.py input_files/TestData.csv > result_example.txt
+```
+
 
 ## Example Usage
 The following command processes TestData.csv and outputs the top student(s) to the command line:
