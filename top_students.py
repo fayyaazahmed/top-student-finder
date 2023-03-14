@@ -7,6 +7,7 @@ class Student:
         self.second_name = sn
         self.score = s
 
+
 def read_csv(file_name, header=True):
     try:
         with open(file_name, "r") as f:
@@ -36,6 +37,7 @@ def read_csv(file_name, header=True):
 
     return students
 
+
 def get_top_students(list_of_students):
     top_students = []
     max_score = float('-inf')
@@ -52,6 +54,7 @@ def get_top_students(list_of_students):
     
     return top_students
 
+
 def quicksort(list_of_students):
     # returns if list is empty or contains single Student
     if len(list_of_students) <= 1:
@@ -59,17 +62,24 @@ def quicksort(list_of_students):
 
     # quick sort algorithm using the first element as a pivot
     pivot = list_of_students[0]
+
     # sorts by first_name and then second_name if tie breaks ocur.
-    less_than_pivot = [student for student in list_of_students[1:] if (student.first_name < pivot.first_name) or (student.first_name == pivot.first_name and student.last_name < pivot.last_name)]
-    greater_than_pivot = [student for student in list_of_students[1:] if (student.first_name > pivot.first_name) or (student.first_name == pivot.first_name and student.last_name >= pivot.last_name)]
-    
+    try:
+        less_than_pivot = [student for student in list_of_students[1:] if (student.first_name < pivot.first_name) or (student.first_name == pivot.first_name and student.last_name < pivot.last_name)]
+        greater_than_pivot = [student for student in list_of_students[1:] if (student.first_name >= pivot.first_name) or (student.first_name == pivot.first_name and student.last_name >= pivot.last_name)]
+    except AttributeError:
+        sys.stdout.write("The input_file contains a duplicate Student. Remove and retry.\n")
+        sys.exit()
+
     # recursively sorts each of the 3 sets.
     return quicksort(less_than_pivot) + [pivot] + quicksort(greater_than_pivot)
 
+
 def main():
     # basic CLI interface for better accessiblity
-    parser = argparse.ArgumentParser(description="Top Perfoming Student Finder - Uses a max algorthim to find top students and then implements a Quicksort to sort them aplhabetically. Writes to STDOUT.",
-                                 formatter_class=argparse.ArgumentDefaultsHelpFormatter)
+    parser = argparse.ArgumentParser(
+        description="Top Perfoming Student Finder - Uses a max algorthim to find top students and then implements a Quicksort to sort them aplhabetically. Writes to STDOUT.",
+        formatter_class=argparse.ArgumentDefaultsHelpFormatter)
     parser.add_argument("-n", "--no-header", action="store_true", help="Specifies that the input_file does not contain a header row")
     parser.add_argument("input_file", help="CSV file of students (Format: first_name, second_name, score (integer)")
     args = parser.parse_args()
