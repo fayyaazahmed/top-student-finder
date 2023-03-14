@@ -50,19 +50,19 @@ Score: <score>
 The following command processes TestData.csv and outputs the top student(s) to the command line:
 
 ```
-python top_students.py TestData.csv
+python top_students.py input_files/TestData.csv
 ```
 
 The following command processes TestData_NoHeader.csv with no header and outputs the top student(s) to the command line:
 
 ```
-python top_students.py -n TestData_NoHeader.csv
+python top_students.py -n input_files/TestData_NoHeader.csv
 ```
 
 The following command processes TestData.csv using Quicksort and outputs the top student(s) to the command line:
 
 ```
-python top_students.py -q TestData.csv
+python top_students.py -q input_files/TestData.csv
 ```
 
 
