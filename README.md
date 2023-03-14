@@ -6,16 +6,17 @@ This program reads in a CSV file of students with their first and last names, an
 
 ## Arguments
 ### Required Arguments
-input_file: Specifies the path to the CSV file to be processed.
+`input_file`: Specifies the path to the CSV file to be processed.
 ### Optional Arguments
--h, --help: Shows help message and exit.
--n, --no-header: Specifies that the input_file does not contain a header row.
+`-h`, `--help`: Shows help message and exit.
+`-n`, `--no-header`: Specifies that the input_file does not contain a header row.
 ## Input Format
 The input file must be in CSV format and contain the following fields:
 
-first_name: First name of the student (string).
-second_name: Second name of the student (string).
-score: Score of the student (integer).
+`first_name`: First name of the student (string).
+`second_name`: Second name of the student (string).
+`score`: Score of the student (integer).
+
 ## Output Format
 The program outputs the top student(s) in the following format:
 ```
