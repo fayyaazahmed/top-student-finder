@@ -62,7 +62,7 @@ python top_students.py -n TestData_NoHeader.csv
 The following command processes TestData.csv using Quicksort and outputs the top student(s) to the command line:
 
 ```
-python top_students.py -q TestData_NoHeader.csv
+python top_students.py -q TestData.csv
 ```
 
 
