@@ -9,7 +9,9 @@ This program reads in a CSV file of students with their first and last names, an
 `input_file`: Specifies the path to the CSV file to be processed.
 ### Optional Arguments
 `-h`, `--help`: Shows help message and exit.
+
 `-n`, `--no-header`: Specifies that the input_file does not contain a header row.
+
 ## Input Format
 The input file must be in CSV format and contain the following fields:
 
@@ -32,3 +34,8 @@ The following command processes students.csv and outputs the top student(s) to t
 The following command processes students.csv with no header and outputs the top student(s) to the command line:
 
 `python top_students.py -n TestData_NoHeader.csv`
+
+
+## Limitations
+
+Requires a unique list of students as input. Exception thrown if duplicate is among top students.
