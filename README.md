@@ -53,7 +53,7 @@ The following command processes TestData.csv and outputs the top student(s) to t
 python top_students.py TestData.csv
 ```
 
-The following command processes TestData.csv with no header and outputs the top student(s) to the command line:
+The following command processes TestData_NoHeader.csv with no header and outputs the top student(s) to the command line:
 
 ```
 python top_students.py -n TestData_NoHeader.csv
