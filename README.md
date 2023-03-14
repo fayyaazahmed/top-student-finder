@@ -16,7 +16,9 @@ This program reads in a CSV file of students with their first and last names, an
 The input file must be in CSV format and contain the following fields:
 
 `first_name`: First name of the student (string).
+
 `second_name`: Second name of the student (string).
+
 `score`: Score of the student (integer).
 
 ## Output Format
