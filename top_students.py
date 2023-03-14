@@ -81,19 +81,27 @@ def main():
         description="Top Perfoming Student Finder - Uses a max algorthim to find top students and then implements a Quicksort to sort them aplhabetically. Writes to STDOUT.",
         formatter_class=argparse.ArgumentDefaultsHelpFormatter)
     parser.add_argument("-n", "--no-header", action="store_true", help="Specifies that the input_file does not contain a header row")
+    parser.add_argument("-q", "--quicksort", action="store_true", help="Uses Quicksort instead of the default python sorting algorithm. No duplicates allowed.")
     parser.add_argument("input_file", help="CSV file of students (Format: first_name, second_name, score (integer)")
     args = parser.parse_args()
     config = vars(args)
 
     # this is where the magic happens
-    top_students = quicksort(get_top_students(read_csv(config['input_file'], not config['no_header'])))
-    
+    top_students = get_top_students(read_csv(config['input_file'], not config['no_header']))
+
     # returns and exits for empty set
     if len(top_students) < 1:
         sys.stdout.write("No students were found in \'" + config['input_file'] + "\'\n")
         sys.exit()
+
+    # choose sorting algorithm...more coming soon.
+    if config['quicksort']:
+        sorted_list = quicksort(top_students)
+    else:
+        sorted_list = sorted(top_students, key=lambda student: (student.first_name, student.second_name))
+    
     # outputs the results to stdout
-    for student in top_students:
+    for student in sorted_list:
         sys.stdout.write(student.first_name + " " + student.second_name + "\n")
     sys.stdout.write("Score: " + str(top_students[0].score) + "\n")
 
