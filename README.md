@@ -15,6 +15,9 @@ I also included a quicksort for larger lists which has best case time complexity
 ### Max algorithm
 This was a straightforward max algorithm that iterated over the list of students once and had time compplexity `O(n)`
 
+## Requirements
+- Python 2 (CLI)
+
 ## Usage
 ```
 python top_students.py [-h] [-n] [-q] input_file
